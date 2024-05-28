@@ -1,0 +1,34 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Yatra+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+font-family: "Red Hat Text", sans-serif;
+}
+
+.bh-sha{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.popular-tag{
+        position: absolute;
+        left: auto;
+        top: 25px;
+        right: -28px;
+        bottom: auto;
+        width: 130px;
+        padding: 4px 0px;
+        /* background-color: #00b289; */
+
+        transform: rotate(45deg);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: #00b289;
+}
