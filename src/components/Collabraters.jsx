@@ -39,7 +39,7 @@ const Collabraters = () => {
       </div>
       <div className="flex flex-col lg:my-20 my-5 lg:w-10/2  w-full mx-auto space-y-5">
         {collaborate.map((partners, index) => (
-          <div className="w-full mx-auto flex justify-between mt-5 boxFirst rounded-lg shadow-xl py-10 px-10">
+          <div key={index} className="w-full mx-auto flex justify-between mt-5 boxFirst rounded-lg shadow-xl py-10 px-10">
             <div className="flex flex-col">
               <div key={index} className="text-2xl font-semibold py-2">
                 {partners.heading}

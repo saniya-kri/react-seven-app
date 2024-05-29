@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { links } from "./Mylinks";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const NavLinks = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   return (
     <>
-      {links.map((link) => (
+      {links.map((link,index) => (
         <div className="z-40">
-          <div className="px-3 text-left md:cursor-pointer group z-50">
+          <div key={index} className="px-3 text-left md:cursor-pointer group z-50">
             <h1
               className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
               onClick={() => {
@@ -19,14 +20,14 @@ const NavLinks = () => {
             >
               {link.name}
               <span className="text-xl md:hidden inline">
-                <ion-icon
+                <RiArrowDownSLine
                   name={`${
                     heading === link.name ? "chevron-up" : "chevron-down"
                   }`}
-                ></ion-icon>
+                ></RiArrowDownSLine>
               </span>
               <span className="text-xl md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 group-hover:-mt-2">
-                <ion-icon name="chevron-down"></ion-icon>
+                <RiArrowDownSLine name="chevron-down"></RiArrowDownSLine>
               </span>
             </h1>
             {link.submenu && (
@@ -38,14 +39,14 @@ const NavLinks = () => {
                     mt-1 bg-white rotate-45"
                     ></div>
                   </div>
-                  <div className="bh-sha p-5 flex flex-col h-full bg-[#f6f9fb] ">
+                  <div className="bh-sha p-5 flex flex-col h-full bg-[#f6f9fb]">
                     {link.sublinks.map((mysublinks) => (
                       <div>
                         <h1 className="text-lg lg:font-medium mt-6">
                           {mysublinks.Head}
                         </h1>
-                        {mysublinks.sublink.map((slink) => (
-                          <li className="text-sm text-gray-600 my-2.5 mt-5 pb-10 border-b border-b-neutral-300">
+                        {mysublinks.sublink.map((slink ,index) => (
+                          <li key={index} className="text-sm text-gray-600 my-2.5 mt-5 pb-10 border-b border-b-neutral-300">
                             <Link
                               to={slink.link}
                               className="hover:text-[#00b289] text-neutral-500 font-semibold text-[13px]"
@@ -62,13 +63,13 @@ const NavLinks = () => {
             )}
           </div>
           {/* Mobile menus */}
-         <div
+         <div 
             className={`
             ${heading === link.name ? "md:hidden" : "hidden"}
           `}
           >
             {/* sublinks */}
-            {link.sublinks.map((slinks) => (
+            {link.sublinks.map((slinks,index) => (
               <div>
                 <div>
                   <h1
@@ -82,22 +83,22 @@ const NavLinks = () => {
                     {slinks.Head}
 
                     <span className="text-xl md:mt-1 md:ml-2 inline">
-                      <ion-icon
+                      <RiArrowDownSLine
                         name={`${
                           subHeading === slinks.Head
                             ? "chevron-up"
                             : "chevron-down"
                         }`}
-                      ></ion-icon>
+                      ></RiArrowDownSLine>
                     </span>
                   </h1>
-                  <div
+                  <div key={index}
                     className={`${
                       subHeading === slinks.Head ? "md:hidden" : "hidden"
                     }`}
                   >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14 text-neutral-500">
+                    {slinks.sublink.map((slink,index) => (
+                      <li key={index} className="py-3 pl-14 text-neutral-500">
                         <Link to={slink.link}>{slink.name}</Link>
                       </li>
                     ))}

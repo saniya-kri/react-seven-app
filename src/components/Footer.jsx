@@ -19,7 +19,7 @@ const Footer = () => {
                 //   <li key={index} className="mt-3 flex items-center">
                 //     <span className="ml-2">{features}</span>
                 //   </li>
-                <li className="mt-4 flex items-center text-neutral-600 text-[14px]">
+                <li key={index} className="mt-4 flex items-center text-neutral-600 text-[14px]">
                         <a className="ml-2" href={index}>{features}</a>
                 </li>
                 ))}
